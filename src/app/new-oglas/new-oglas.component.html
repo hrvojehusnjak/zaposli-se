@@ -1,3 +1,50 @@
-<p>
-  new-oglas works!
-</p>
+<div class="form-container">
+  <form [formGroup]="newOglasForm">
+    <div class="user-propaganda">
+      <h3>Lako nađi studentske radnike</h3>
+      <span class="form-helper">Prihvaćamo oglase fizičkih i pravnih osoba za jednokratne i dugoročne poslove</span>
+    </div>
+    <section>
+      <div class="form-field">
+        <span class="section-heading">O poslu</span>
+      </div>
+      <div class="form-field">
+        <label for="posaoNaziv">Naziv posla *</label>
+        <input type="text" id="posaoNaziv" formControlName="posaoNaziv" maxlength="50" autofocus>
+        <span class="form-helper">Max. 50 znakova</span>
+      </div>
+      <div class="form-field">
+        <label for="posaoOpis">Opis posla (sažeto) *</label>
+        <input type="text" id="posaoOpis" formControlName="posaoOpis" maxlength="200">
+        <span class="form-helper">Max. 200 znakova</span>
+      </div>
+      <div class="form-field">
+        <label for="posaoDetaljanOpis">Detaljan opis posla <i>(nije obavezan)</i></label>
+        <textarea id="posaoDetaljanOpis" formControlName="posaoDetaljanOpis" rows="5" maxlength="1000"></textarea>
+        <span class="form-helper">Max. 1000 znakova</span>
+      </div>
+      <div class="form-field">
+        <label for="posaoLokacija">Adresa *</label>
+        <input type="text" id="posaoLokacija" formControlName="posaoLokacija">
+      </div>
+    </section>
+    <section>
+      <div class="form-field">
+        <span class="section-heading">O oglašivaču</span>
+      </div>
+      <div class="form-field">
+        <label for="oglasivacNaziv">Naziv oglašivača *</label>
+        <input type="text" id="oglasivacNaziv" formControlName="oglasivacNaziv">
+      </div>
+      <div class="form-field">
+        <label for="oglasivacMail">Mail za prijavu *</label>
+        <input type="text" id="oglasivacMail" formControlName="oglasivacMail">
+      </div>
+      <div class="form-field">
+        <label for="oglasivacTel">Kontakt broj *</label>
+        <input type="text" id="oglasivacTel" formControlName="oglasivacTel">
+      </div>
+      <input type="submit" class="cta" value="Objavi oglas">
+    </section>
+  </form>
+</div>

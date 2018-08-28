@@ -53,12 +53,7 @@ header ul {
 }
 
 .header-search input {
-    border: 0;
-    outline: 0;
-    border-bottom: 2px solid var(--neutral-color);
-    border-radius: 1px;
     width: 100%;
-    color: var(--text-color);
     padding: 10px 0;
 }
 
@@ -67,20 +62,8 @@ header ul {
     font-weight: 900;
 }
 
-.header-search input:focus {
-    border-bottom: 2px solid var(--secondary-color);
-}
-
 .header-cta {
     display: inline-block;
-    padding: var(--btn-padding);
-    color: var(--nav-text-color);
-    background-color: var(--primary-color);
-    border-radius: 3px;
-}
-
-.header-cta:hover {
-    background-color: var(--secondary-color);
 }
 
 main {

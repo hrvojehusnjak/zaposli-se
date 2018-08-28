@@ -8,6 +8,7 @@
     --secondary-color: #217CED;
     --neutral-color: #C4CAC7;
     --text-color: #2A2B2A;
+    --text-light: #646464;
     --nav-text-color: #FFF;
     --btn-padding: 10px 15px;
     font-family: 'Nunito', sans-serif;
@@ -15,8 +16,31 @@
     line-height: 1.4;
 }
 
-a, input {
+a, input, textarea {
     transition: 0.2s ease-in;
+}
+
+input[type='text'] {
+    border: 0;
+    outline: 0;
+    border-bottom: 2px solid var(--neutral-color);
+    border-radius: 1px;
+    color: var(--text-color);
+}
+
+textarea {
+    border: 0;
+    outline: 0;
+    border-bottom: 2px solid var(--neutral-color);
+    border-radius: 1px;
+}
+
+input[type='text']:focus {
+    border-bottom: 2px solid var(--secondary-color);
+}
+
+textarea:focus {
+    border-bottom: 2px solid var(--secondary-color);
 }
 
 hr {
@@ -24,6 +48,17 @@ hr {
     height: 1px;
     background-color: var(--neutral-color);
     transition: 0.2s ease-in;
+}
+
+.cta {
+    padding: var(--btn-padding);
+    color: var(--nav-text-color);
+    background-color: var(--primary-color);
+    border-radius: 3px;
+}
+
+.cta:hover {
+    background-color: var(--secondary-color);
 }
 
 .visible {

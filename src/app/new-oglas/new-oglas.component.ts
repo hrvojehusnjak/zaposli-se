@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormGroup, FormControl } from '@angular/forms';
 
 @Component({
   selector: 'app-new-oglas',
@@ -11,5 +12,15 @@ export class NewOglasComponent implements OnInit {
 
   ngOnInit() {
   }
+
+  newOglasForm = new FormGroup({
+    posaoNaziv: new FormControl(''),
+    posaoOpis: new FormControl(''),
+    posaoDetaljanOpis: new FormControl(''),
+    posaoLokacija: new FormControl(''),
+    oglasivacNaziv: new FormControl(''),
+    oglasivacMail: new FormControl(''),
+    oglasivacTel: new FormControl('')
+  });
 
 }
