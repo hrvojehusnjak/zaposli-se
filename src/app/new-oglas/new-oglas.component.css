@@ -42,9 +42,30 @@ form {
     color: var(--text-light);
 }
 
+.form-field input:focus + .form-helper, .form-field textarea:focus + .form-helper {
+    color: var(--text-color);
+    font-weight: 900;
+    transition: 0.2s ease-in-out;
+}
+
+.ng-valid[required] + .form-helper {
+    color: var(--text-light);
+}
+
+.ng-invalid.ng-dirty:not(:focus) + .form-helper {
+    color: var(--err-color);
+    font-weight: 900;
+}
+
 input[type='submit'] {
     margin: var(--main-gutter) 0;
     border: 0;
     cursor: pointer;
     font-weight: 900;
+}
+
+input[type='submit']:disabled {
+    background-color: var(--neutral-color);
+    color: var(--text-color);
+    cursor: not-allowed;
 }

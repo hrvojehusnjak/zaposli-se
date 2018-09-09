@@ -1,8 +1,8 @@
 <div class="form-container">
-  <form [formGroup]="newOglasForm">
+  <form [formGroup]="newOglasForm" (ngSubmit)="onSubmit()">
     <div class="user-propaganda">
       <h3>Lako nađi studentske radnike</h3>
-      <span class="form-helper">Prihvaćamo oglase fizičkih i pravnih osoba za jednokratne i dugoročne poslove</span>
+      <span class="form-helper">Razglašavamo oglase fizičkih i pravnih osoba za jednokratne i dugoročne poslove</span>
     </div>
     <section>
       <div class="form-field">
@@ -24,7 +24,7 @@
         <span class="form-helper">Max. 1000 znakova</span>
       </div>
       <div class="form-field">
-        <label for="posaoLokacija">Adresa *</label>
+        <label for="posaoLokacija">Mjesto rada (adresa) *</label>
         <input type="text" id="posaoLokacija" formControlName="posaoLokacija">
       </div>
     </section>
@@ -37,14 +37,16 @@
         <input type="text" id="oglasivacNaziv" formControlName="oglasivacNaziv">
       </div>
       <div class="form-field">
-        <label for="oglasivacMail">Mail za prijavu *</label>
+        <label for="oglasivacMail">E-mail za prijavu *</label>
         <input type="text" id="oglasivacMail" formControlName="oglasivacMail">
+        <span class="form-helper">npr. korisnik@domena.com</span>
       </div>
       <div class="form-field">
         <label for="oglasivacTel">Kontakt broj *</label>
         <input type="text" id="oglasivacTel" formControlName="oglasivacTel">
+        <span class="form-helper">Upisati samo znamenke s pozivnim, npr. 013300999, 091000999</span>
       </div>
-      <input type="submit" class="cta" value="Objavi oglas">
+      <input type="submit" [disabled]="!newOglasForm.valid" class="cta" value="Objavi oglas">
     </section>
   </form>
 </div>

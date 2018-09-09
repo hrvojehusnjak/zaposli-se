@@ -24,13 +24,18 @@ export class AppComponent implements OnInit {
   navScrollHandler(ev) {
     var scrollTop = window.pageYOffset || document.body.scrollTop;
     if (scrollTop > 20) {
-      this.isVisible = true;
-      this.isHidden = false;
-      this.setClasses();
+      if(!this.isVisible) {
+        this.isVisible = true;
+        this.isHidden = false;
+        this.setClasses();
+      }
     } else {
-      this.isVisible = false;
-      this.isHidden = true;
-      this.setClasses();
+      if(this.isVisible) {
+        this.isVisible = false;
+        this.isHidden = true;
+        this.setClasses();
+      }
     }
+    setTimeout(() => {}, 200);
   }
 }

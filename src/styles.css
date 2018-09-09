@@ -10,6 +10,7 @@
     --text-color: #2A2B2A;
     --text-light: #646464;
     --nav-text-color: #FFF;
+    --err-color: #F71735;
     --btn-padding: 10px 15px;
     font-family: 'Nunito', sans-serif;
     color: var(--text-color);
@@ -20,7 +21,7 @@ a, input, textarea {
     transition: 0.2s ease-in;
 }
 
-input[type='text'] {
+input[type='text'], input[type='email'], input[type='search'] {
     border: 0;
     outline: 0;
     border-bottom: 2px solid var(--neutral-color);
@@ -35,7 +36,7 @@ textarea {
     border-radius: 1px;
 }
 
-input[type='text']:focus {
+input[type='text']:focus, input[type='email']:focus, input[type='search']:focus {
     border-bottom: 2px solid var(--secondary-color);
 }
 

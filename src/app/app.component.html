@@ -2,14 +2,11 @@
   <div id="first-row" class="first-row" [ngClass]="classes"></div>
   <header (window:scroll)="navScrollHandler($event)">
     <nav>
-      <ul>
-        <div class="header-logo"><li><a routerLink="/home">zaposli-se.com</a></li></div>
-        <div class="header-search"><li><input type="text" name="search" placeholder=" &#xF002; Pretraži oglase po nazivu posla, poslodavcu, lokaciji" aria-label="Pretraži oglase po nazivu posla, poslodavcu, lokaciji"></li></div>
-        <div class="header-ctas">
-          <li><a routerLink="/objavi" class="cta header-cta">Nađi studente</a></li>
-          <li><a href="#" class="cta header-cta">Izmijeni oglas</a></li>
-        </div>
-      </ul>
+      <div class="header-logo"><a routerLink="/home">zaposli-se.com</a></div>
+      <div class="header-ctas">
+        <a routerLink="/objavi" class="cta header-cta">Nađi studente</a>
+        <a href="#" class="cta header-cta">Izmijeni oglas</a>
+      </div>
     </nav>
   </header>
   <main id="main">

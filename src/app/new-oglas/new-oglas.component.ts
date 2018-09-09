@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl } from '@angular/forms';
+import { Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-new-oglas',
@@ -14,13 +15,17 @@ export class NewOglasComponent implements OnInit {
   }
 
   newOglasForm = new FormGroup({
-    posaoNaziv: new FormControl(''),
-    posaoOpis: new FormControl(''),
-    posaoDetaljanOpis: new FormControl(''),
-    posaoLokacija: new FormControl(''),
-    oglasivacNaziv: new FormControl(''),
-    oglasivacMail: new FormControl(''),
-    oglasivacTel: new FormControl('')
+    posaoNaziv: new FormControl('', [Validators.maxLength(50), Validators.required]),
+    posaoOpis: new FormControl('', [Validators.maxLength(200), Validators.required]),
+    posaoDetaljanOpis: new FormControl('', Validators.maxLength(1000)),
+    posaoLokacija: new FormControl('', [Validators.maxLength(200), Validators.required]),
+    oglasivacNaziv: new FormControl('', [Validators.maxLength(200), Validators.required]),
+    oglasivacMail: new FormControl('', [Validators.email, Validators.required]),
+    oglasivacTel: new FormControl('', [Validators.pattern('[0-9]+'), Validators.minLength(9), Validators.required])
   });
+
+  onSubmit() {
+    console.log(this.newOglasForm.value);
+  }
 
 }
