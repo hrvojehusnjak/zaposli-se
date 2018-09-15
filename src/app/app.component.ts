@@ -12,7 +12,7 @@ export class AppComponent implements OnInit {
   isHidden: boolean = true;
   classes: {};
 
-  constructor(private auth: AuthenticationService) { }
+  constructor(public auth: AuthenticationService) { }
 
   ngOnInit() {
     this.setClasses();

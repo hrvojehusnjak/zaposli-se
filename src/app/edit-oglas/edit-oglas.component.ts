@@ -94,4 +94,25 @@ export class EditOglasComponent implements OnInit {
     return true;
   }
 
+  checkTextAreaRows(event) {
+    if (event.target.scrollHeight > event.target.offsetHeight) {
+      event.target.style.height = (event.target.scrollHeight + 5)+'px';
+      return;
+    }
+    let key = event.keyCode || event.charCode;
+    if (key === 8 || key === 46) {
+      this.reduceTextAreaHeight(event);
+    }
+  }
+
+  reduceTextAreaHeight(event) {
+    // timeout za doc do event.target.value nakon cuta
+    setTimeout(() => {
+      let lines = event.target.value.split(/\r|\r\n|\n/).length;
+      if(lines*18 < event.target.scrollHeight) {
+        event.target.style.height = (lines*18 + 5) + 'px';
+      }
+    }, 0);
+  }
+
 }

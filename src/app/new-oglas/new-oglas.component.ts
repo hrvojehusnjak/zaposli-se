@@ -61,6 +61,7 @@ export class NewOglasComponent implements OnInit {
     this.oglasService.addOglas(oglas)
       .subscribe((res: Response) => {
         if (res.status >= 200 && res.status < 300) {
+          this.newOglasForm.reset();
           this.notyfService.success('Oglas spremljen');
         }
         else {
