@@ -1,24 +1,37 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { HttpClientModule } from '@angular/common/http';
 import { ReactiveFormsModule } from '@angular/forms';
+
+import { NotyfModule } from 'ng-notyf';
 
 import { AppComponent } from './app.component';
 import { NewOglasComponent } from './new-oglas/new-oglas.component';
 import { RoutingModule } from './routing/routing.module';
 import { HomeComponent } from './home/home.component';
+import { OglasComponent } from './oglas/oglas.component';
+import { EditOglasComponent } from './edit-oglas/edit-oglas.component';
+import { LoginComponent } from './login/login.component';
+import { AuthGuardService } from './auth-guard.service';
+import { CanDeactivateGuard } from './can-deactivate-guard.service';
 
 @NgModule({
   declarations: [
     AppComponent,
     NewOglasComponent,
-    HomeComponent
+    HomeComponent,
+    OglasComponent,
+    EditOglasComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
+    HttpClientModule,
     RoutingModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    NotyfModule
   ],
-  providers: [],
+  providers: [AuthGuardService, CanDeactivateGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

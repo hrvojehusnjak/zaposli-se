@@ -11,6 +11,7 @@
     --text-light: #646464;
     --nav-text-color: #FFF;
     --err-color: #F71735;
+    --err-light-color: rgb(248, 53, 79);
     --btn-padding: 10px 15px;
     font-family: 'Nunito', sans-serif;
     color: var(--text-color);
@@ -19,6 +20,52 @@
 
 a, input, textarea {
     transition: 0.2s ease-in;
+}
+
+hr {
+    border: 0;
+    height: 1px;
+    background-color: var(--neutral-color);
+    transition: 0.2s ease-in;
+}
+
+.cta {
+    padding: var(--btn-padding);
+    color: var(--nav-text-color);
+    background-color: var(--primary-color);
+    border-radius: 3px;
+    font-weight: 900;
+    cursor: pointer;
+}
+
+.cta:hover {
+    background-color: var(--secondary-color);
+}
+
+.secondary-cta {
+    font-weight: 400;
+    color: var(--primary-color);
+    background-color: var(--nav-text-color);
+}
+
+.danger-cta {
+    background-color: var(--err-color);
+}
+
+.danger-cta:hover {
+    background-color: var(--err-light-color);
+}
+
+.secondary-cta:hover {
+    background-color: var(--nav-text-color);
+}
+
+.visible {
+    opacity: 1;
+}
+
+.hidden {
+    opacity: 0;
 }
 
 input[type='text'], input[type='email'], input[type='search'] {
@@ -44,28 +91,76 @@ textarea:focus {
     border-bottom: 2px solid var(--secondary-color);
 }
 
-hr {
+.form-container {
+    display: grid;
+}
+
+form {
+    justify-self: center;
+}
+
+.user-propaganda {
+    margin: var(--main-gutter) 0;
+}
+
+.user-propaganda h3 {
+    margin: 0;
+}
+
+.section-heading {
+    font-weight: 900;
+}
+
+.form-field {
+    margin-bottom: var(--main-gutter);
+}
+
+.form-field input {
+    width: 100%;
+    padding: 5px 0px;
+    margin-bottom: 5px;
+}
+
+.form-field textarea {
+    width: 100%;
+    resize: none;
+    overflow: hidden;
+    min-height: 64px;
+}
+
+.form-field span {
+    display: block;
+}
+
+.form-helper {
+    font-size: 14px;
+    color: var(--text-light);
+}
+
+.form-field input:focus + .form-helper, .form-field textarea:focus + .form-helper {
+    color: var(--text-color);
+    font-weight: 900;
+    transition: 0.2s ease-in-out;
+}
+
+.ng-valid[required] + .form-helper {
+    color: var(--text-light);
+}
+
+.ng-invalid.ng-dirty:not(:focus) {
+    border-bottom-color: var(--err-color);
+}
+
+input[type='submit'] {
+    margin: var(--main-gutter) 0;
     border: 0;
-    height: 1px;
+    cursor: pointer;
+    font-weight: 900;
+    line-height: 1.4;
+}
+
+input[type='submit']:disabled {
     background-color: var(--neutral-color);
-    transition: 0.2s ease-in;
-}
-
-.cta {
-    padding: var(--btn-padding);
-    color: var(--nav-text-color);
-    background-color: var(--primary-color);
-    border-radius: 3px;
-}
-
-.cta:hover {
-    background-color: var(--secondary-color);
-}
-
-.visible {
-    opacity: 1;
-}
-
-.hidden {
-    opacity: 0;
+    color: var(--text-color);
+    cursor: not-allowed;
 }

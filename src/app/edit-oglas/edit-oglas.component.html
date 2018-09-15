@@ -1,0 +1,43 @@
+<div class="form-container">
+  <form [formGroup]="editOglasForm" (ngSubmit)="saveAndExit()">
+    <div class="form-field">
+      <label for="posaoNaziv">Naziv posla *</label>
+      <input type="text" id="posaoNaziv" formControlName="posaoNaziv" maxlength="50" autofocus>
+      <span class="form-helper">Max. 50 znakova</span>
+    </div>
+    <div class="form-field">
+      <label for="posaoOpis">Osnovni opis posla *</label>
+      <input type="text" id="posaoOpis" formControlName="posaoOpis" maxlength="200">
+      <span class="form-helper">Max. 200 znakova</span>
+    </div>
+    <div class="form-field">
+      <label for="posaoDetaljanOpis">Detaljan opis posla <i>(nije obavezan)</i></label>
+      <textarea id="posaoDetaljanOpis" formControlName="posaoDetaljanOpis" rows="4" maxlength="1000" (keyup)="checkTextAreaRows($event)" (paste)="checkTextAreaRows($event)" (cut)="reduceTextAreaHeight($event)"></textarea>
+      <span class="form-helper">Max. 1000 znakova</span>
+    </div>
+    <div class="form-field">
+      <label for="posaoLokacija">Mjesto rada (adresa) *</label>
+      <input type="text" id="posaoLokacija" formControlName="posaoLokacija">
+    </div>
+    <div class="form-field">
+      <label for="oglasivacNaziv">Naziv oglašivača *</label>
+      <input type="text" id="oglasivacNaziv" formControlName="oglasivacNaziv">
+    </div>
+    <div class="form-field">
+      <label for="oglasivacMail">E-mail za prijavu **</label>
+      <input type="text" id="oglasivacMail" formControlName="oglasivacMail">
+      <span class="form-helper">npr. posao@tvrtka.com</span>
+    </div>
+    <div class="form-field">
+      <span class="section-heading">I / ILI</span>
+    </div>
+    <div class="form-field">
+      <label for="oglasivacTel">Kontakt broj **</label>
+      <input type="text" id="oglasivacTel" formControlName="oglasivacTel">
+      <span class="form-helper">Upisati samo znamenke s pozivnim, npr. 013300999, 091000999</span>
+    </div>
+    <input type="submit" class="cta" value="Spremi i izađi">
+    <a class="cta danger-cta" (click)="deleteOglas(oglas._id)">Izbriši oglas</a>
+    <a class="cta secondary-cta" (click)="exit()">Odbaci promjene</a>
+  </form>
+</div>

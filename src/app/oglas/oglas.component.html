@@ -1,0 +1,16 @@
+<i class="fas fa-chevron-up details" (click)="switchToMinView()"></i>
+<div (click)="switchToFullView()">
+  <b class="oglas-naslov">{{oglas.posaoNaziv}}</b>
+  <hr>
+  <div class="oglas-info">
+    <ul>
+      <li>Oglašivač: {{oglas.oglasivacNaziv}}</li>
+      <li>Opis posla: {{oglas.posaoOpis}}</li>
+      <li class="details">{{oglas.posaoDetaljanOpis}}</li>
+      <li>Lokacija: {{oglas.posaoLokacija}}</li>
+      <li *ngIf="oglas.oglasivacMail">Mail: {{oglas.oglasivacMail}}</li>
+      <li *ngIf="oglas.oglasivacTel">Kontakt broj: {{oglas.oglasivacTel}}</li>
+      <li class="details">Rok prijave: {{oglas.istekDatum | date:'d.M.y.'}}</li>
+    </ul>
+  </div>
+</div>

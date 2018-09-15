@@ -2,7 +2,16 @@
   <form [formGroup]="newOglasForm" (ngSubmit)="onSubmit()">
     <div class="user-propaganda">
       <h3>Lako nađi studentske radnike</h3>
-      <span class="form-helper">Razglašavamo oglase fizičkih i pravnih osoba za jednokratne i dugoročne poslove</span>
+      <br>
+      <span class="form-helper">Prikazujemo oglase fizičkih i pravnih osoba za jednokratne i dugoročne poslove</span>
+      <br>
+      <span class="form-helper">U oglasu moraju biti unijete informacije sukladno <a href="#">pravilima oglašavanja</a></span>
+      <br>
+      <span class="form-helper">Oglas postaje vidljiv nakon što ga odobre administratori</span>
+      <br>
+      <span class="form-helper">* - obavezno polje</span>
+      <br>
+      <span class="form-helper">** - popuniti bar jedno polje iz skupine</span>
     </div>
     <section>
       <div class="form-field">
@@ -14,13 +23,13 @@
         <span class="form-helper">Max. 50 znakova</span>
       </div>
       <div class="form-field">
-        <label for="posaoOpis">Opis posla (sažeto) *</label>
+        <label for="posaoOpis">Osnovni opis posla *</label>
         <input type="text" id="posaoOpis" formControlName="posaoOpis" maxlength="200">
         <span class="form-helper">Max. 200 znakova</span>
       </div>
       <div class="form-field">
         <label for="posaoDetaljanOpis">Detaljan opis posla <i>(nije obavezan)</i></label>
-        <textarea id="posaoDetaljanOpis" formControlName="posaoDetaljanOpis" rows="5" maxlength="1000"></textarea>
+        <textarea id="posaoDetaljanOpis" formControlName="posaoDetaljanOpis" rows="4" maxlength="1000" (keyup)="checkTextAreaRows($event)" (paste)="checkTextAreaRows($event)" (cut)="reduceTextAreaHeight($event)"></textarea>
         <span class="form-helper">Max. 1000 znakova</span>
       </div>
       <div class="form-field">
@@ -37,12 +46,15 @@
         <input type="text" id="oglasivacNaziv" formControlName="oglasivacNaziv">
       </div>
       <div class="form-field">
-        <label for="oglasivacMail">E-mail za prijavu *</label>
+        <label for="oglasivacMail">E-mail za prijavu **</label>
         <input type="text" id="oglasivacMail" formControlName="oglasivacMail">
-        <span class="form-helper">npr. korisnik@domena.com</span>
+        <span class="form-helper">npr. posao@tvrtka.com</span>
       </div>
       <div class="form-field">
-        <label for="oglasivacTel">Kontakt broj *</label>
+        <span class="section-heading">I / ILI</span>
+      </div>
+      <div class="form-field">
+        <label for="oglasivacTel">Kontakt broj **</label>
         <input type="text" id="oglasivacTel" formControlName="oglasivacTel">
         <span class="form-helper">Upisati samo znamenke s pozivnim, npr. 013300999, 091000999</span>
       </div>

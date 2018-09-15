@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
+import { AuthenticationService } from './authentication.service';
+
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -9,6 +11,8 @@ export class AppComponent implements OnInit {
   isVisible: boolean = false;
   isHidden: boolean = true;
   classes: {};
+
+  constructor(private auth: AuthenticationService) { }
 
   ngOnInit() {
     this.setClasses();

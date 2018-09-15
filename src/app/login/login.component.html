@@ -1,0 +1,14 @@
+<div class="form-container">
+  <form [formGroup]="loginForm" (ngSubmit)="login()">
+      <div class="form-field">
+        <label for="username">E-mail</label>
+        <input type="text" name="username" id="username" formControlName="username" required>
+        <span class="form-helper">npr. posao@tvrtka.com</span>
+      </div>
+      <div class="form-field">
+        <label for="password">Lozinka</label>
+        <input type="text" name="password" id="password" formControlName="password" required>
+      </div>
+    <input type="submit" [disabled]="!loginForm.valid" class="cta" value="Uredi oglas">
+  </form>
+</div>

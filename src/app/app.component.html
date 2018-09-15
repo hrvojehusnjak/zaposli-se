@@ -4,8 +4,8 @@
     <nav>
       <div class="header-logo"><a routerLink="/home">zaposli-se.com</a></div>
       <div class="header-ctas">
-        <a routerLink="/objavi" class="cta header-cta">Nađi studente</a>
-        <a href="#" class="cta header-cta">Izmijeni oglas</a>
+        <a *ngIf="!auth.isLoggedIn()" routerLink="/objavi" class="cta header-cta">Nađi studente</a>
+        <a *ngIf="!auth.isLoggedIn()" routerLink="/unos" class="cta header-cta">Izmijeni oglas</a>
       </div>
     </nav>
   </header>

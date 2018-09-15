@@ -1,0 +1,78 @@
+:host {
+    padding: var(--main-gutter);
+    border-radius: 3px;
+    position: relative;
+}
+
+:host::after {
+    content: '';
+    background-color: var(--neutral-color);
+    border-radius: 3px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    opacity: 0;
+    z-index: -1;
+}
+
+:host:hover { 
+    cursor: pointer;
+}
+
+:host:hover::after {
+    transition: 0.2s ease-in;
+    opacity: 0.5;
+}
+
+:host.full-view {
+    grid-column: 1 / end;
+}
+
+:host.full-view:hover {
+    cursor: initial;
+}
+
+:host.full-view:hover::after {
+    display: none;
+}
+
+.details {
+    display: none;
+}
+
+:host.full-view .details {
+    display: initial;
+}
+
+:host.full-view hr {
+    opacity: 1;
+}
+
+i.fa-chevron-up {
+    position: absolute;
+    top: 25px;
+    right: 25px;
+    z-index: 2;
+}
+
+i.fa-chevron-up:hover {
+    cursor: pointer;
+}
+
+hr {
+    opacity: 0;
+}
+
+:host:hover hr {
+    opacity: 1;
+}
+
+ul {
+    padding: 0;
+}
+
+li {
+    list-style-type: none;
+}
