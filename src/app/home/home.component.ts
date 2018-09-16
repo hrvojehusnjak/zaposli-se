@@ -12,6 +12,7 @@ import { AuthenticationService } from '../authentication.service';
 export class HomeComponent implements OnInit {
 
   oglasi;
+  searchText: string;
 
   constructor(private oglasService: OglasService, private auth: AuthenticationService) { }
 

@@ -1,0 +1,8 @@
+:host {
+    display: grid;
+    height: 100%;
+}
+
+.form-container {
+    align-self: center;
+}

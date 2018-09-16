@@ -1,7 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
-import { ReactiveFormsModule } from '@angular/forms';
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 
 import { NotyfModule } from 'ng-notyf';
 
@@ -15,6 +15,7 @@ import { LoginComponent } from './login/login.component';
 import { AuthGuardService } from './auth-guard.service';
 import { CanDeactivateGuard } from './can-deactivate-guard.service';
 import { TermsComponent } from './terms/terms.component';
+import { SearchPipe } from './search.pipe';
 
 @NgModule({
   declarations: [
@@ -24,13 +25,15 @@ import { TermsComponent } from './terms/terms.component';
     OglasComponent,
     EditOglasComponent,
     LoginComponent,
-    TermsComponent
+    TermsComponent,
+    SearchPipe
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
     RoutingModule,
     ReactiveFormsModule,
+    FormsModule,
     NotyfModule
   ],
   providers: [AuthGuardService, CanDeactivateGuard],

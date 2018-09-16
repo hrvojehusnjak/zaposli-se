@@ -1,2 +1,2 @@
-<div class="header-search"><input type="text" name="search" placeholder=" &#xF002; Pretraži oglase po nazivu posla, poslodavcu, lokaciji" aria-label="Pretraži oglase po nazivu posla, poslodavcu, lokaciji"></div>
-<app-oglas *ngFor="let oglas of oglasi" [oglas]="oglas" class="oglas"></app-oglas>
+<div class="header-search"><input [(ngModel)]="searchText" type="text" name="search" placeholder=" &#xF002; Pretraži oglase po nazivu posla, poslodavcu, lokaciji" aria-label="Pretraži oglase po nazivu posla, poslodavcu, lokaciji" autofocus></div>
+<app-oglas *ngFor="let oglas of oglasi | search : searchText" [oglas]="oglas" class="oglas"></app-oglas>
