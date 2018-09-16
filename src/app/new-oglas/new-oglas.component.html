@@ -5,7 +5,7 @@
       <br>
       <span class="form-helper">Prikazujemo oglase fizičkih i pravnih osoba za jednokratne i dugoročne poslove</span>
       <br>
-      <span class="form-helper">U oglasu moraju biti unijete informacije sukladno <a href="#">pravilima oglašavanja</a></span>
+      <span class="form-helper">U oglasu moraju biti unijete informacije sukladno <a routerLink="/uvjeti">pravilima oglašavanja</a> (čl. 8. i 9.)</span>
       <br>
       <span class="form-helper">Oglas postaje vidljiv nakon što ga odobre administratori</span>
       <br>
@@ -57,6 +57,10 @@
         <label for="oglasivacTel">Kontakt broj **</label>
         <input type="text" id="oglasivacTel" formControlName="oglasivacTel">
         <span class="form-helper">Upisati samo znamenke s pozivnim, npr. 013300999, 091000999</span>
+      </div>
+      <div class="form-field">
+        <input type="checkbox" id="acceptTerms" formControlName="acceptTerms">
+        <span class="form-helper"> Pristajem na pohranu, obradu i korištenje unesenih podataka</span>
       </div>
       <input type="submit" [disabled]="!newOglasForm.valid" class="cta" value="Objavi oglas">
     </section>

@@ -22,6 +22,10 @@ a, input, textarea {
     transition: 0.2s ease-in;
 }
 
+a {
+    color: var(--primary-color);
+}
+
 hr {
     border: 0;
     height: 1px;
@@ -119,6 +123,18 @@ form {
     width: 100%;
     padding: 5px 0px;
     margin-bottom: 5px;
+}
+
+.form-field input[type='checkbox'] {
+    width: initial;
+}
+
+.form-field input[type='checkbox'] + .form-helper {
+    display: initial;
+}
+
+.form-field input[type='checkbox']:focus + .form-helper, .form-field input[type='checkbox']:checked + .form-helper {
+    font-weight: 400;
 }
 
 .form-field textarea {

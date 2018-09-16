@@ -32,7 +32,8 @@ export class NewOglasComponent implements OnInit {
     posaoLokacija: new FormControl('', [Validators.maxLength(200), Validators.required]),
     oglasivacNaziv: new FormControl('', [Validators.maxLength(100), Validators.required]),
     oglasivacMail: new FormControl('', Validators.email),
-    oglasivacTel: new FormControl('', [Validators.pattern('[0-9]+'), Validators.minLength(9), Validators.maxLength(20)])
+    oglasivacTel: new FormControl('', [Validators.pattern('[0-9]+'), Validators.minLength(9), Validators.maxLength(20)]),
+    acceptTerms: new FormControl(false, Validators.required)
   }, atLeastOne(Validators.required, ['oglasivacMail','oglasivacTel']));
 
   checkTextAreaRows(event) {

@@ -14,6 +14,7 @@ import { EditOglasComponent } from './edit-oglas/edit-oglas.component';
 import { LoginComponent } from './login/login.component';
 import { AuthGuardService } from './auth-guard.service';
 import { CanDeactivateGuard } from './can-deactivate-guard.service';
+import { TermsComponent } from './terms/terms.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { CanDeactivateGuard } from './can-deactivate-guard.service';
     HomeComponent,
     OglasComponent,
     EditOglasComponent,
-    LoginComponent
+    LoginComponent,
+    TermsComponent
   ],
   imports: [
     BrowserModule,
