@@ -4,8 +4,6 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
 
 import { AuthenticationService } from '../authentication.service';
 
-import { NotyfService } from 'ng-notyf';
-
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -13,9 +11,7 @@ import { NotyfService } from 'ng-notyf';
 })
 export class LoginComponent implements OnInit {
 
-  constructor(private auth: AuthenticationService, private router: Router, private notyfService: NotyfService) {
-    this.notyfService.toastStyle = { 'background-color': '#1656A3', 'color': 'white', 'border-radius': '3px', 'box-shadow': 'none' };
-  }
+  constructor(private auth: AuthenticationService, private router: Router) { }
 
   ngOnInit() {
     if (this.auth.isLoggedIn()) {
@@ -32,10 +28,9 @@ export class LoginComponent implements OnInit {
     let formValue = this.loginForm.value;
     let credentials = JSON.stringify(formValue);
     this.auth.login(formValue).subscribe(() => {
-      this.notyfService.success('Oglas pronađen');
       this.router.navigateByUrl('/edit');
     }, (err) => {
-      this.notyfService.error('Oglas nije pronađen');
+      console.log(err);
     });
   }
 

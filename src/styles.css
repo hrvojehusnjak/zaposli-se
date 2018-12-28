@@ -180,3 +180,22 @@ input[type='submit']:disabled {
     color: var(--text-color);
     cursor: not-allowed;
 }
+
+.response-message {
+    position: absolute;
+    right: 40px;
+    bottom: 40px;
+    padding: var(--main-gutter);
+    z-index: 1;
+    max-width: 300px;
+    color: #fff;
+    border-radius: 2px;
+}
+
+.response-success {
+    background-color: var(--primary-color);
+}
+
+.response-error {
+    background-color: var(--err-color);
+}

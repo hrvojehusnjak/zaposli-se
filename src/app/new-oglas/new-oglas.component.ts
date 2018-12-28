@@ -6,7 +6,6 @@ import { OglasService } from '../oglas.service';
 
 import { atLeastOne } from '../at-least-one-validator';
 import { AuthenticationService } from '../authentication.service';
-import { NotyfService } from 'ng-notyf';
 
 @Component({
   selector: 'app-new-oglas',
@@ -15,9 +14,10 @@ import { NotyfService } from 'ng-notyf';
 })
 export class NewOglasComponent implements OnInit {
 
-  constructor(private oglasService: OglasService, private auth: AuthenticationService, private notyfService: NotyfService) {
-    this.notyfService.toastStyle = { 'background-color': '#1656A3', 'color': 'white', 'border-radius': '3px', 'box-shadow': 'none' };
-  }
+  success: boolean = false;
+  error: boolean = false;
+
+  constructor(private oglasService: OglasService, private auth: AuthenticationService) { }
 
   ngOnInit() {
     if (this.auth.isLoggedIn()) {
@@ -33,7 +33,7 @@ export class NewOglasComponent implements OnInit {
     oglasivacNaziv: new FormControl('', [Validators.maxLength(100), Validators.required]),
     oglasivacMail: new FormControl('', Validators.email),
     oglasivacTel: new FormControl('', [Validators.pattern('[0-9]+'), Validators.minLength(9), Validators.maxLength(20)]),
-    acceptTerms: new FormControl(false, Validators.required)
+    acceptTerms: new FormControl(false, Validators.requiredTrue)
   }, atLeastOne(Validators.required, ['oglasivacMail','oglasivacTel']));
 
   checkTextAreaRows(event) {
@@ -61,13 +61,16 @@ export class NewOglasComponent implements OnInit {
     let oglas = this.newOglasForm.value;
     this.oglasService.addOglas(oglas)
       .subscribe((res: Response) => {
-        if (res.status >= 200 && res.status < 300) {
           this.newOglasForm.reset();
-          this.notyfService.success('Oglas spremljen');
-        }
-        else {
-          this.notyfService.error('Neuspješno spremanje oglasa');
-        }
+          this.success = true;
+          window.setTimeout(() => {
+            this.success = false;
+          }, 5000);
+      }, (err) => {
+        this.error = true;
+        window.setTimeout(() => {
+          this.error = false;
+        }, 5000);
       });
   }
 

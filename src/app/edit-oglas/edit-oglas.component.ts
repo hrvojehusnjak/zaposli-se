@@ -1,8 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 
-import { NotyfService } from 'ng-notyf';
-
 import { AuthenticationService } from '../authentication.service';
 import { OglasService } from '../oglas.service';
 import { Oglas } from '../oglas';
@@ -18,10 +16,10 @@ export class EditOglasComponent implements OnInit {
 
   credentials: Mapping;
   oglas: Oglas;
+  success: boolean = false;
+  error: boolean = false;
 
-  constructor(private auth: AuthenticationService, private oglasService: OglasService, private notyfService: NotyfService) {
-    this.notyfService.toastStyle = { 'background-color': '#1656A3', 'color': 'white', 'border-radius': '3px', 'box-shadow': 'none' };
-  }
+  constructor(private auth: AuthenticationService, private oglasService: OglasService) { }
 
   ngOnInit() {
     this.auth.profile().subscribe((user: Mapping) => {
@@ -30,10 +28,16 @@ export class EditOglasComponent implements OnInit {
         .subscribe((oglas: Oglas) => {
           this.oglas = oglas;
           this.editOglasForm.patchValue(this.oglas);
+          this.success = true;
+        window.setTimeout(() => {
+          this.success = false;
+        }, 5000);
         });
     }, (err) => {
-      this.notyfService.error('Neuspjelo učitavanje oglasa');
-      console.error(err);
+      this.error = true;
+      window.setTimeout(() => {
+        this.error = false;
+      }, 5000);
     });
   }
 
@@ -61,24 +65,34 @@ export class EditOglasComponent implements OnInit {
     };
     this.oglasService.putOglas(filteredEdit)
       .subscribe((res: Response) => {
-        if (res.status >= 200 && res.status < 300) {
-          this.notyfService.success('Promjene spremljene');
-          this.editOglasForm.markAsPristine();
-          this.auth.logout();
-        }
+        this.editOglasForm.markAsPristine();
+        this.success = true;
+        window.setTimeout(() => {
+          this.success = false;
+        }, 5000);
+        this.auth.logout();
       }, (err) => {
-        this.notyfService.error('Neuspješno spremanje promjena');
+        this.error = true;
+        window.setTimeout(() => {
+          this.error = false;
+        }, 5000);
       });
   }
 
   deleteOglas(id) {
     this.oglasService.deleteOglas(id)
       .subscribe((res) => {
-        this.notyfService.success('Oglas izbrisan');
         this.editOglasForm.markAsPristine();
+        this.success = true;
+        window.setTimeout(() => {
+          this.success = false;
+        }, 5000);
         this.auth.logout();
       }, (err) => {
-        this.notyfService.error('Neuspješno brisanje oglasa');
+        this.error = true;
+        window.setTimeout(() => {
+          this.error = false;
+        }, 5000);
       });
   }
 
@@ -91,6 +105,7 @@ export class EditOglasComponent implements OnInit {
     if (this.editOglasForm.dirty) {
       return window.confirm('Promjene nisu spremljene, želite li napustiti stranicu?');
     }
+    this.auth.logout();
     return true;
   }
 

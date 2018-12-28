@@ -132,7 +132,25 @@ footer {
     footer {
         grid-column: 2 / 3;
         grid-template-columns: 1fr 1fr 1fr;
-        grid-template-rows: 250px;
+        grid-template-rows: 250px auto;
+    }
+
+    .remaining-links {
+        grid-column: 1 / 4;
+        color: var(--text-light);
+    }
+
+    .remaining-links > a:first-of-type {
+        padding-left: 0;
+    }
+
+    .remaining-links > a {
+        padding: 0 var(--main-gutter);
+        border-right: 1px solid var(--text-light);
+    }
+
+    .remaining-links > span {
+        padding-left: var(--main-gutter);
     }
 }
 

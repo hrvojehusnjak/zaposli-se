@@ -40,4 +40,6 @@
     <a class="cta danger-cta" (click)="deleteOglas(oglas._id)">Izbriši oglas</a>
     <a class="cta secondary-cta" (click)="exit()">Odbaci promjene</a>
   </form>
+  <div class="response-message response-success" [hidden]="!success">Uspješno obavljeno</div>
+  <div class="response-message response-error" [hidden]="!error">Neuspješna radnja. Molimo pokušajte ponovno</div>
 </div>

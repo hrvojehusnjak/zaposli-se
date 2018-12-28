@@ -60,9 +60,19 @@
       </div>
       <div class="form-field">
         <input type="checkbox" id="acceptTerms" formControlName="acceptTerms">
-        <span class="form-helper"> Pristajem na pohranu, obradu i korištenje unesenih podataka</span>
+        <span class="form-helper"> Pristajem na pohranu, obradu i korištenje unesenih podataka. Za detalje pročitaj <a routerLink="/uvjeti">uvjete korištenja</a></span>
       </div>
       <input type="submit" [disabled]="!newOglasForm.valid" class="cta" value="Objavi oglas">
+      <br>
+      <span class="err-message form-helper" [hidden]="newOglasForm.valid">
+        Molimo da <b>popunite</b> obavezna polja i <b>označite</b> da se slažete s uvjetima korištenja.
+      </span>
     </section>
   </form>
+  <div class="response-message response-success" [hidden]="!success">
+    <span>Uspješno spremljen oglas! Oglas će biti vidljiv na portalu nakon odobrenja</span>
+  </div>
+  <div class="response-message response-error" [hidden]="!error">
+      <span>Neuspješno spremljen oglas. Molimo pokušajte ponovno</span>
+  </div>
 </div>

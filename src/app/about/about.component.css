@@ -1,0 +1,35 @@
+:host {
+    display: grid;
+    grid-template-columns: 35% 30% 35%;
+    grid-gap: var(--main-gutter);
+}
+
+.idea {
+    grid-column: 1 / 2;
+    height: 300px;
+    background-image: url('../../assets/pikwizard-42fe2efbcf91b32a309cd384072a8d65.jpg');
+    background-size: cover;
+    background-position: left center;
+    color: var(--text-color);
+    position: relative;
+    border-radius: 3px;
+}
+
+.text-center {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    padding: var(--main-gutter);
+    font-size: 20px;
+    font-weight: 900;
+}
+
+.explanation {
+    grid-column: 2 / 4;
+}
+
+.explanation p {
+    color: var(--text-light);
+}

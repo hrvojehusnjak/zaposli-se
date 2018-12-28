@@ -7,13 +7,17 @@ import { EditOglasComponent } from '../edit-oglas/edit-oglas.component';
 import { AuthGuardService } from '../auth-guard.service';
 import { CanDeactivateGuard } from '../can-deactivate-guard.service';
 import { TermsComponent } from '../terms/terms.component';
+import { AboutComponent } from '../about/about.component';
+import { FaqComponent } from '../faq/faq.component';
 
 const routes = [
   { path: 'home', component: HomeComponent },
   { path: 'objavi', component: NewOglasComponent },
   { path: 'unos', component: LoginComponent },
   { path: 'edit', component: EditOglasComponent, canActivate: [AuthGuardService], canDeactivate: [CanDeactivateGuard] },
+  { path: 'about', component: AboutComponent },
   { path: 'uvjeti', component: TermsComponent },
+  { path: 'faq', component: FaqComponent },
   { path: '', redirectTo: '/home', pathMatch: 'full' }
 ];
 
