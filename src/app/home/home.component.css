@@ -1,6 +1,6 @@
 :host {
     display: grid;
-    grid-template-columns: repeat(auto-fill, 230px) [end];
+    grid-template-columns: 100%;
 }
 
 .header-search {
@@ -16,4 +16,8 @@
 .header-search input {
     font-family: 'Nunito', 'Font Awesome 5 Free';
     font-weight: 900;
+}
+
+@media screen and (min-width: 768px) {
+    grid-template-columns: repeat(auto-fill, 230px) [end];
 }
