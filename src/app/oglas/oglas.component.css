@@ -1,7 +1,8 @@
 :host {
-    padding: var(--main-gutter);
-    border-radius: 3px;
     position: relative;
+    grid-column: 1 / end;
+    word-break: break-word;
+    border-radius: 3px;
 }
 
 :host::after {
@@ -75,4 +76,10 @@ ul {
 
 li {
     list-style-type: none;
+}
+
+@media screen and (min-width: 425px) {
+    :host {
+        padding: var(--main-gutter);
+    }
 }
